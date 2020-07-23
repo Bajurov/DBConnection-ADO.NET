@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.sqlCommand1 = new System.Data.SqlClient.SqlCommand();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,6 +41,10 @@
             this.button5 = new System.Windows.Forms.Button();
             this.CityTextBox = new System.Windows.Forms.TextBox();
             this.sqlCommand4 = new System.Data.SqlClient.SqlCommand();
+            this.button6 = new System.Windows.Forms.Button();
+            this.CategoryNameTextBox = new System.Windows.Forms.TextBox();
+            this.OrdYearTextBox = new System.Windows.Forms.TextBox();
+            this.sqlCommand5 = new System.Data.SqlClient.SqlCommand();
             this.SuspendLayout();
             // 
             // sqlConnection1
@@ -69,7 +74,7 @@
             this.ResultsTextBox.Multiline = true;
             this.ResultsTextBox.Name = "ResultsTextBox";
             this.ResultsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.ResultsTextBox.Size = new System.Drawing.Size(396, 361);
+            this.ResultsTextBox.Size = new System.Drawing.Size(396, 374);
             this.ResultsTextBox.TabIndex = 1;
             // 
             // button2
@@ -100,7 +105,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(13, 159);
+            this.button4.Location = new System.Drawing.Point(14, 159);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(189, 42);
             this.button4.TabIndex = 4;
@@ -114,7 +119,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 208);
+            this.button5.Location = new System.Drawing.Point(13, 208);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(189, 42);
             this.button5.TabIndex = 5;
@@ -124,9 +129,9 @@
             // 
             // CityTextBox
             // 
-            this.CityTextBox.Location = new System.Drawing.Point(12, 257);
+            this.CityTextBox.Location = new System.Drawing.Point(14, 257);
             this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(189, 22);
+            this.CityTextBox.Size = new System.Drawing.Size(188, 22);
             this.CityTextBox.TabIndex = 6;
             // 
             // sqlCommand4
@@ -136,11 +141,50 @@
             this.sqlCommand4.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@City", System.Data.SqlDbType.NVarChar, 15, "City")});
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(12, 287);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(189, 42);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "Процедура с параметром";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // CategoryNameTextBox
+            // 
+            this.CategoryNameTextBox.Location = new System.Drawing.Point(12, 335);
+            this.CategoryNameTextBox.Name = "CategoryNameTextBox";
+            this.CategoryNameTextBox.Size = new System.Drawing.Size(190, 22);
+            this.CategoryNameTextBox.TabIndex = 8;
+            this.CategoryNameTextBox.Text = "Beverages";
+            // 
+            // OrdYearTextBox
+            // 
+            this.OrdYearTextBox.Location = new System.Drawing.Point(12, 364);
+            this.OrdYearTextBox.Name = "OrdYearTextBox";
+            this.OrdYearTextBox.Size = new System.Drawing.Size(190, 22);
+            this.OrdYearTextBox.TabIndex = 9;
+            this.OrdYearTextBox.Text = "1997";
+            // 
+            // sqlCommand5
+            // 
+            this.sqlCommand5.CommandText = "SalesByCategory";
+            this.sqlCommand5.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCommand5.Connection = this.sqlConnection1;
+            this.sqlCommand5.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((byte)(0)), ((byte)(0)), "", System.Data.DataRowVersion.Current, null),
+            new System.Data.SqlClient.SqlParameter("@CategoryName", System.Data.SqlDbType.NVarChar, 15),
+            new System.Data.SqlClient.SqlParameter("@OrdYear", System.Data.SqlDbType.NVarChar, 4)});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 426);
+            this.Controls.Add(this.OrdYearTextBox);
+            this.Controls.Add(this.CategoryNameTextBox);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.CityTextBox);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -148,8 +192,9 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.ResultsTextBox);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "DB Connection ";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +214,10 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox CityTextBox;
         private System.Data.SqlClient.SqlCommand sqlCommand4;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox CategoryNameTextBox;
+        private System.Windows.Forms.TextBox OrdYearTextBox;
+        private System.Data.SqlClient.SqlCommand sqlCommand5;
     }
 }
 
